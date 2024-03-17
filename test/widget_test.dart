@@ -16,6 +16,6 @@ void main() {
     await tester.pumpWidget(const MyApp());
 
     // Verify that our counter starts at 0.
-    expect(find.text('Home Page'), findsAtLeastNWidgets(1));
+    expect(find.text('LCD Soft'), findsOneWidget);
   });
 }
