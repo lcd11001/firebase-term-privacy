@@ -41,26 +41,36 @@ class HomePage extends StatelessWidget {
     debugPrint('Screen height: $screenHeight');
 
     bool isScreenWide = screenWidth >= kMinWidthOfLargeScreen;
+    var containerHeight = isScreenWide ? kLogoSize * 1.5 : kLogoSize * 3.0;
 
     return Container(
       color: Colors.red,
-      height: 500,
+      height: containerHeight,
+      padding: const EdgeInsets.symmetric(horizontal: 40.0),
       child: Flex(
         direction: isScreenWide ? Axis.horizontal : Axis.vertical,
         children: [
           Flexible(
             fit: isScreenWide ? FlexFit.tight : FlexFit.loose,
-            child: Row(
-              children: [
-                _buildLogo(),
-                _buildDeveloper(),
-              ],
-            ),
+            child: _buildRowDeveloper(),
           ),
           Flexible(
             fit: isScreenWide ? FlexFit.tight : FlexFit.loose,
             child: _buildSlogan(),
           ),
+        ],
+      ),
+    );
+  }
+
+  _buildRowDeveloper() {
+    return Container(
+      color: Colors.blue,
+      height: kLogoSize * 1.5,
+      child: Row(
+        children: [
+          _buildLogo(),
+          _buildDeveloper(),
         ],
       ),
     );
@@ -76,7 +86,7 @@ class HomePage extends StatelessWidget {
     return Container(
       height: min(backdropHeight, kBackdropHeight),
       decoration: const BoxDecoration(
-        color: Colors.blue,
+        color: Colors.transparent,
         image: DecorationImage(
           image: AssetImage(kBackdrop),
           fit: BoxFit.cover,
@@ -123,12 +133,14 @@ class HomePage extends StatelessWidget {
   _buildSlogan() {
     return Container(
       color: Colors.green,
-      // height: 500,
-      child: const Text(
-        kSlogan,
-        textAlign: TextAlign.center,
-        style: TextStyle(
-          fontSize: 16.0,
+      height: kLogoSize * 1.5,
+      child: const Center(
+        child: Text(
+          kSlogan,
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            fontSize: 16.0,
+          ),
         ),
       ),
     );
@@ -136,8 +148,8 @@ class HomePage extends StatelessWidget {
 
   _buildApps() {
     return Container(
-      color: Colors.black,
-      height: 5,
+      color: Colors.transparent,
+      height: 1,
     );
   }
 }
