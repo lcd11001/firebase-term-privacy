@@ -1,7 +1,6 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 const kLogo = 'assets/images/bj_512.png';
 const kLogoSize = 96.0;
@@ -35,18 +34,14 @@ class HomePage extends StatelessWidget {
 
   _buildFlexDeveloper(BuildContext context) {
     final screenWidth = MediaQuery.sizeOf(context).width;
-    final screenHeight = MediaQuery.sizeOf(context).height;
-
-    debugPrint('Screen width: $screenWidth');
-    debugPrint('Screen height: $screenHeight');
 
     bool isScreenWide = screenWidth >= kMinWidthOfLargeScreen;
-    var containerHeight = isScreenWide ? kLogoSize * 1.5 : kLogoSize * 3.0;
+    var containerHeight = isScreenWide ? kLogoSize * 2.0 : kLogoSize * 3.5;
 
     return Container(
-      color: Colors.red,
+      color: Colors.transparent,
       height: containerHeight,
-      padding: const EdgeInsets.symmetric(horizontal: 40.0),
+      padding: const EdgeInsets.symmetric(horizontal: 30.0),
       child: Flex(
         direction: isScreenWide ? Axis.horizontal : Axis.vertical,
         children: [
@@ -65,11 +60,15 @@ class HomePage extends StatelessWidget {
 
   _buildRowDeveloper() {
     return Container(
-      color: Colors.blue,
+      color: Colors.transparent,
       height: kLogoSize * 1.5,
+      // padding: const EdgeInsets.symmetric(vertical: 16.0),
       child: Row(
         children: [
           _buildLogo(),
+          const SizedBox(
+            width: 16.0,
+          ),
           _buildDeveloper(),
         ],
       ),
@@ -78,10 +77,7 @@ class HomePage extends StatelessWidget {
 
   _buildBackdrop(BuildContext context) {
     final screenWidth = MediaQuery.sizeOf(context).width;
-    final screenHeight = MediaQuery.sizeOf(context).height;
-
     var backdropHeight = screenWidth * 9 / 16;
-    debugPrint('backdropHeight: $backdropHeight');
 
     return Container(
       height: min(backdropHeight, kBackdropHeight),
@@ -100,7 +96,7 @@ class HomePage extends StatelessWidget {
       child: Text(
         kDeveloperName,
         style: TextStyle(
-          fontSize: 24.0,
+          fontSize: 36.0,
           fontWeight: FontWeight.bold,
         ),
       ),
@@ -117,7 +113,7 @@ class HomePage extends StatelessWidget {
           decoration: BoxDecoration(
             shape: BoxShape.circle,
             border: Border.all(
-              color: Colors.grey,
+              color: Colors.grey.shade300,
               width: 1.0,
             ),
           ),
@@ -132,14 +128,15 @@ class HomePage extends StatelessWidget {
 
   _buildSlogan() {
     return Container(
-      color: Colors.green,
-      height: kLogoSize * 1.5,
+      color: Colors.transparent,
+      height: kLogoSize * 2.0,
+      // padding: const EdgeInsets.symmetric(vertical: 16.0),
       child: const Center(
         child: Text(
           kSlogan,
-          textAlign: TextAlign.center,
+          textAlign: TextAlign.left,
           style: TextStyle(
-            fontSize: 16.0,
+            fontSize: 20.0,
           ),
         ),
       ),

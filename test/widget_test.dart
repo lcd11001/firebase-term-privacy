@@ -17,7 +17,9 @@ const iPadMini = Size(768, 1024);
 const iPadPro = Size(1024, 1366);
 
 void testHomePage(WidgetTester tester, Size size) async {
+  debugPrint('Screen size: $size');
   tester.view.physicalSize = size;
+  tester.view.devicePixelRatio = 1.0;
 
   // Build our app and trigger a frame.
   await tester.pumpWidget(const MyApp());
