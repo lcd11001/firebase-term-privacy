@@ -1,87 +1,124 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
-const _LOGO_SIZE = 96.0;
+const kLogo = 'assets/images/bj_512.png';
+const kLogoSize = 96.0;
+
+const kBackdrop = 'assets/images/bg_4096_2304.png';
+const kBackdropHeight = 480.0;
+
+const kDeveloperName = 'LCD Soft';
+const kSlogan =
+    '🚀 Explore our innovative apps! From productivity tools to addictive games, we’ve got you covered. Discover the magic of LCD Soft today! 🌟';
+
+const kMinWidthOfLargeScreen = 600.0;
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: <Widget>[
-            ConstrainedBox(
-              constraints: const BoxConstraints.expand(height: 480),
-              child: Image.asset(
-                'assets/images/bg_4096_2304.png',
-                width: double.infinity,
-                fit: BoxFit.cover,
-              ),
-            ),
-            Container(
-              padding: const EdgeInsets.only(
-                left: 50,
-                right: 50,
-                top: 100,
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Expanded(
-                    child: Row(
-                      children: [
-                        Stack(
-                          alignment: Alignment.center,
-                          children: [
-                            Container(
-                              width: _LOGO_SIZE,
-                              height: _LOGO_SIZE,
-                              decoration: BoxDecoration(
-                                border: Border.all(
-                                  color: Colors.grey.shade200,
-                                  width: 1,
-                                ),
-                                borderRadius:
-                                    BorderRadius.circular(_LOGO_SIZE / 2),
-                              ),
-                            ),
-                            ClipRRect(
-                              borderRadius:
-                                  BorderRadius.circular(_LOGO_SIZE / 2),
-                              child: Image.asset(
-                                'assets/images/bj_512.png',
-                                width: _LOGO_SIZE,
-                                height: _LOGO_SIZE,
-                              ),
-                            ),
-                          ],
-                        ),
-                        const SizedBox(width: 20),
-                        const Text(
-                          'LCD Soft',
-                          style: TextStyle(
-                            fontSize: 50,
-                            fontWeight: FontWeight.normal,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  const Expanded(
-                    child: Text(
-                        '🚀 Explore our innovative apps! From productivity tools to addictive games, we’ve got you covered. Discover the magic of LCD Soft today! 🌟',
-                        style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.normal,
-                        )),
-                  )
-                ],
-              ),
-            )
-          ],
+      body: SizedBox(
+        width: double.infinity,
+        child: SingleChildScrollView(
+          child: Column(
+            children: <Widget>[
+              _buildBackdrop(),
+              _buildFlexDeveloper(context),
+              _buildApps(),
+            ],
+          ),
         ),
       ),
+    );
+  }
+
+  _buildFlexDeveloper(BuildContext context) {
+    final screenWidth = MediaQuery.sizeOf(context).width;
+    final screenHeight = MediaQuery.sizeOf(context).height;
+
+    debugPrint('Screen width: $screenWidth');
+    debugPrint('Screen height: $screenHeight');
+
+    bool isScreenWide = screenWidth >= kMinWidthOfLargeScreen;
+
+    return Flex(
+      direction: isScreenWide ? Axis.horizontal : Axis.vertical,
+      children: [
+        Expanded(
+          child: Row(
+            children: [
+              _buildLogo(),
+              _buildDeveloper(),
+            ],
+          ),
+        ),
+        Expanded(
+          child: _buildSlogan(),
+        ),
+      ],
+    );
+  }
+
+  _buildBackdrop() {
+    return Container(
+      height: kBackdropHeight,
+      decoration: const BoxDecoration(
+        color: Colors.blue,
+        image: DecorationImage(
+          image: AssetImage(kBackdrop),
+          fit: BoxFit.cover,
+        ),
+      ),
+    );
+  }
+
+  _buildDeveloper() {
+    return const Text(
+      kDeveloperName,
+      style: TextStyle(
+        fontSize: 24.0,
+        fontWeight: FontWeight.bold,
+      ),
+    );
+  }
+
+  _buildLogo() {
+    return SizedBox.fromSize(
+      size: const Size(kLogoSize, kLogoSize),
+      child: ClipOval(
+        child: Container(
+          width: kLogoSize,
+          height: kLogoSize,
+          decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            border: Border.all(
+              color: Colors.grey,
+              width: 1.0,
+            ),
+          ),
+          child: Image.asset(
+            kLogo,
+            fit: BoxFit.contain,
+          ),
+        ),
+      ),
+    );
+  }
+
+  _buildSlogan() {
+    return const Text(
+      kSlogan,
+      textAlign: TextAlign.center,
+      style: TextStyle(
+        fontSize: 16.0,
+      ),
+    );
+  }
+
+  _buildApps() {
+    return const SizedBox(
+      height: 5,
     );
   }
 }
