@@ -10,12 +10,40 @@ import 'package:flutter_test/flutter_test.dart';
 
 import 'package:firebase_hosting/my_app.dart';
 
-void main() {
-  testWidgets('Test Home Page', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
-    await tester.pumpWidget(const MyApp());
+const iPhoneSE = Size(375, 667);
+const samsungS8 = Size(360, 740);
+const iPhoneXR = Size(414, 896);
+const iPadMini = Size(768, 1024);
+const iPadPro = Size(1024, 1366);
 
-    // Verify that our counter starts at 0.
-    expect(find.text('LCD Soft'), findsOneWidget);
+void testHomePage(WidgetTester tester, Size size) async {
+  tester.view.physicalSize = size;
+
+  // Build our app and trigger a frame.
+  await tester.pumpWidget(const MyApp());
+
+  // Verify that our counter starts at 0.
+  expect(find.text('LCD Soft'), findsOneWidget);
+}
+
+void main() {
+  testWidgets('Test Home Page iPhoneSE', (WidgetTester tester) async {
+    testHomePage(tester, iPhoneSE);
+  });
+
+  testWidgets('Test Home Page Samsung S8', (WidgetTester tester) async {
+    testHomePage(tester, samsungS8);
+  });
+
+  testWidgets('Test Home Page iPhoneXR', (WidgetTester tester) async {
+    testHomePage(tester, iPhoneXR);
+  });
+
+  testWidgets('Test Home Page iPad Mini', (WidgetTester tester) async {
+    testHomePage(tester, iPadMini);
+  });
+
+  testWidgets('Test Home Page iPad Pro', (WidgetTester tester) async {
+    testHomePage(tester, iPadPro);
   });
 }
