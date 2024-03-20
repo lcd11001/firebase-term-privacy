@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
@@ -18,16 +20,14 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SizedBox(
-        width: double.infinity,
-        child: SingleChildScrollView(
-          child: Column(
-            children: <Widget>[
-              _buildBackdrop(),
-              _buildFlexDeveloper(context),
-              _buildApps(),
-            ],
-          ),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            _buildBackdrop(context),
+            // _buildDeveloper(),
+            _buildFlexDeveloper(context),
+            _buildApps(),
+          ],
         ),
       ),
     );
@@ -42,27 +42,39 @@ class HomePage extends StatelessWidget {
 
     bool isScreenWide = screenWidth >= kMinWidthOfLargeScreen;
 
-    return Flex(
-      direction: isScreenWide ? Axis.horizontal : Axis.vertical,
-      children: [
-        Expanded(
-          child: Row(
-            children: [
-              _buildLogo(),
-              _buildDeveloper(),
-            ],
+    return Container(
+      color: Colors.red,
+      height: 500,
+      child: Flex(
+        direction: isScreenWide ? Axis.horizontal : Axis.vertical,
+        children: [
+          Flexible(
+            fit: isScreenWide ? FlexFit.tight : FlexFit.loose,
+            child: Row(
+              children: [
+                _buildLogo(),
+                _buildDeveloper(),
+              ],
+            ),
           ),
-        ),
-        Expanded(
-          child: _buildSlogan(),
-        ),
-      ],
+          Flexible(
+            fit: isScreenWide ? FlexFit.tight : FlexFit.loose,
+            child: _buildSlogan(),
+          ),
+        ],
+      ),
     );
   }
 
-  _buildBackdrop() {
+  _buildBackdrop(BuildContext context) {
+    final screenWidth = MediaQuery.sizeOf(context).width;
+    final screenHeight = MediaQuery.sizeOf(context).height;
+
+    var backdropHeight = screenWidth * 9 / 16;
+    debugPrint('backdropHeight: $backdropHeight');
+
     return Container(
-      height: kBackdropHeight,
+      height: min(backdropHeight, kBackdropHeight),
       decoration: const BoxDecoration(
         color: Colors.blue,
         image: DecorationImage(
@@ -74,11 +86,13 @@ class HomePage extends StatelessWidget {
   }
 
   _buildDeveloper() {
-    return const Text(
-      kDeveloperName,
-      style: TextStyle(
-        fontSize: 24.0,
-        fontWeight: FontWeight.bold,
+    return const Expanded(
+      child: Text(
+        kDeveloperName,
+        style: TextStyle(
+          fontSize: 24.0,
+          fontWeight: FontWeight.bold,
+        ),
       ),
     );
   }
@@ -107,17 +121,22 @@ class HomePage extends StatelessWidget {
   }
 
   _buildSlogan() {
-    return const Text(
-      kSlogan,
-      textAlign: TextAlign.center,
-      style: TextStyle(
-        fontSize: 16.0,
+    return Container(
+      color: Colors.green,
+      // height: 500,
+      child: const Text(
+        kSlogan,
+        textAlign: TextAlign.center,
+        style: TextStyle(
+          fontSize: 16.0,
+        ),
       ),
     );
   }
 
   _buildApps() {
-    return const SizedBox(
+    return Container(
+      color: Colors.black,
       height: 5,
     );
   }
