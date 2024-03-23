@@ -18,6 +18,7 @@ class TermsAndConditionPage extends StatelessWidget {
             _buildTermsAndConditions(context),
             _buildChangesToThisTermsAndConditions(context),
             _buildContactUs(context),
+            const SizedBox(height: 50.0),
           ],
         ),
       ),
@@ -41,7 +42,8 @@ class TermsAndConditionPage extends StatelessWidget {
           Paragraph(text: _.term2(company)),
           Paragraph(text: _.term3(appTitle)),
           Paragraph(text: _.term4),
-          Hyperlink(text: _.hyperlink1_title),
+          Hyperlink(text: _.term4_hyperlink),
+          const SizedBox(height: 20.0),
           Paragraph(text: _.term5(company)),
           Paragraph(text: _.term6),
           Paragraph(text: _.term7(company)),
@@ -73,17 +75,16 @@ class TermsAndConditionPage extends StatelessWidget {
   _buildContactUs(BuildContext context) {
     final _ = AppLocalizations.of(context)!;
     final email = _.developerEmail;
-    final generatorTitle = _.hyperlink2_title;
-    final generatorUrl = _.hyperlink2_url;
 
     return Container(
       color: Colors.transparent,
       padding: const EdgeInsets.symmetric(horizontal: 30.0),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Heading(text: _.termsTitle3),
           Paragraph(text: _.term12(email)),
-          Hyperlink(text: _.term13(generatorTitle, generatorUrl)),
+          Hyperlink(text: _.term12_hyperlink),
         ],
       ),
     );

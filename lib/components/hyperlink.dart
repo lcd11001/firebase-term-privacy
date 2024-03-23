@@ -62,7 +62,7 @@ class Hyperlink extends StatelessWidget {
             return TextSpan(
               text: element.text,
               style: const TextStyle(
-                fontSize: 24.0,
+                fontSize: 20.0,
                 fontWeight: FontWeight.normal,
                 decoration: TextDecoration.underline,
                 color: Colors.blue,
@@ -76,7 +76,7 @@ class Hyperlink extends StatelessWidget {
             return TextSpan(
               text: element.text,
               style: const TextStyle(
-                fontSize: 24.0,
+                fontSize: 20.0,
                 fontWeight: FontWeight.normal,
               ),
             );
