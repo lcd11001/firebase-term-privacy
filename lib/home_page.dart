@@ -1,16 +1,13 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 const kLogo = 'assets/images/bj_512.png';
 const kLogoSize = 96.0;
 
 const kBackdrop = 'assets/images/bg_4096_2304.png';
 const kBackdropHeight = 480.0;
-
-const kDeveloperName = 'LCD Soft';
-const kSlogan =
-    '🚀 Explore our innovative apps! From productivity tools to addictive games, we’ve got you covered. Discover the magic of LCD Soft today! 🌟';
 
 const kMinWidthOfLargeScreen = 600.0;
 
@@ -47,18 +44,18 @@ class HomePage extends StatelessWidget {
         children: [
           Flexible(
             fit: isScreenWide ? FlexFit.tight : FlexFit.loose,
-            child: _buildRowDeveloper(),
+            child: _buildRowDeveloper(context),
           ),
           Flexible(
             fit: isScreenWide ? FlexFit.tight : FlexFit.loose,
-            child: _buildSlogan(),
+            child: _buildSlogan(context),
           ),
         ],
       ),
     );
   }
 
-  _buildRowDeveloper() {
+  _buildRowDeveloper(BuildContext context) {
     return Container(
       color: Colors.transparent,
       height: kLogoSize * 1.5,
@@ -69,7 +66,7 @@ class HomePage extends StatelessWidget {
           const SizedBox(
             width: 16.0,
           ),
-          _buildDeveloper(),
+          _buildDeveloper(context),
         ],
       ),
     );
@@ -91,11 +88,12 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  _buildDeveloper() {
-    return const Expanded(
+  _buildDeveloper(BuildContext context) {
+    final _ = AppLocalizations.of(context)!;
+    return Expanded(
       child: Text(
-        kDeveloperName,
-        style: TextStyle(
+        _.developerName,
+        style: const TextStyle(
           fontSize: 36.0,
           fontWeight: FontWeight.bold,
         ),
@@ -126,16 +124,17 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  _buildSlogan() {
+  _buildSlogan(BuildContext context) {
+    final _ = AppLocalizations.of(context)!;
     return Container(
       color: Colors.transparent,
       height: kLogoSize * 2.0,
       // padding: const EdgeInsets.symmetric(vertical: 16.0),
-      child: const Center(
+      child: Center(
         child: Text(
-          kSlogan,
+          _.slogan,
           textAlign: TextAlign.left,
-          style: TextStyle(
+          style: const TextStyle(
             fontSize: 20.0,
           ),
         ),

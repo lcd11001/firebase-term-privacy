@@ -1,9 +1,13 @@
+import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+
+// run 'flutter gen-l10n' to generate the AppLocalizations class
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 import 'package:firebase_hosting/error_page.dart';
 import 'package:firebase_hosting/home_page.dart';
 import 'package:firebase_hosting/privacy_policy_page.dart';
 import 'package:firebase_hosting/terms_and_condition_page.dart';
-import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
 final _goRouter = GoRouter(
   //initialLocation: '/',
@@ -39,6 +43,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp.router(
       routerConfig: _goRouter,
+      //locale: const Locale('vi'),
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
     );
   }
 }
