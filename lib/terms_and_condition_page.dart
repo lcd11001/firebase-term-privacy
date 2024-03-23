@@ -42,8 +42,16 @@ class TermsAndConditionPage extends StatelessWidget {
           Paragraph(text: _.term2(company)),
           Paragraph(text: _.term3(appTitle)),
           Paragraph(text: _.term4),
-          Hyperlink(text: _.term4_hyperlink),
-          const SizedBox(height: 20.0),
+          Container(
+            padding: const EdgeInsets.only(left: 30.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Hyperlink(text: _.term4_hyperlink),
+                const SizedBox(height: 20.0),
+              ],
+            ),
+          ),
           Paragraph(text: _.term5(company)),
           Paragraph(text: _.term6),
           Paragraph(text: _.term7(company)),

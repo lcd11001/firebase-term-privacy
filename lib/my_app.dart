@@ -20,14 +20,16 @@ final _goRouter = GoRouter(
       builder: (context, state) => const HomePage(),
     ),
     GoRoute(
-      path: '/terms-and-conditions/:appTitle',
+      path: '/terms/:appTitle',
       builder: (context, state) => TermsAndConditionPage(
-        appTitle: state.pathParameters['appTitle'] ?? 'app',
+        appTitle: state.pathParameters['appTitle'] ?? '',
       ),
     ),
     GoRoute(
-      path: '/privacy-policy',
-      builder: (context, state) => const PrivacyPolicyPage(),
+      path: '/privacy/:appTitle',
+      builder: (context, state) => PrivacyPolicyPage(
+        appTitle: state.pathParameters['appTitle'] ?? '',
+      ),
     ),
     GoRoute(
       path: '/404',
