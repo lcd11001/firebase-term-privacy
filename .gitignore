@@ -43,3 +43,4 @@ app.*.map.json
 /android/app/release
 .firebase/
 l10_untranslated.json
+web/google*.html
