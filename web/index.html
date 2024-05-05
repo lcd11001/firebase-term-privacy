@@ -29,7 +29,7 @@
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="favicon.png"/>
 
-  <title>firebase_hosting</title>
+  <title>LCD Soft</title>
   <link rel="manifest" href="manifest.json">
 
   <script>
@@ -40,7 +40,12 @@
   <script src="flutter.js" defer></script>
 </head>
 <body>
+  <!--
+    // https://docs.flutter.dev/platform-integration/web/renderers
+  -->
   <script>
+    let useHtml = true;
+
     window.addEventListener('load', function(ev) {
       // Download main.dart.js
       _flutter.loader.loadEntrypoint({
@@ -48,7 +53,11 @@
           serviceWorkerVersion: serviceWorkerVersion,
         },
         onEntrypointLoaded: function(engineInitializer) {
-          engineInitializer.initializeEngine().then(function(appRunner) {
+          let config = {
+            renderer: useHtml ? "html" : "canvaskit",
+          };
+
+          engineInitializer.initializeEngine(config).then(function(appRunner) {
             appRunner.runApp();
           });
         }
