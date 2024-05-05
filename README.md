@@ -1,13 +1,19 @@
 # firebase_hosting
 
-A new Flutter project.
+How to deploy Flutter web into Firebase hosting.
 
 ## Getting Started
 
-[Flutter Web App Deploy on Firebase][1]
-
 [Build and release a web app][2]
 
-[2]: https://docs.flutter.dev/deployment/web
+[Verify your website][3]
 
-[1]: https://www.youtube.com/watch?v=lcc7eKcQVWQ
+[Add a website property to Search Console][4]
+
+[Google Search Console][5]
+
+
+[2]: https://docs.flutter.dev/deployment/web
+[3]: https://support.google.com/googleplay/android-developer/answer/13205715
+[4]: https://support.google.com/webmasters/answer/34592#zippy=%2Cgoogle-hosted-property-sites-blogger-workspace
+[5]: https://search.google.com/search-console/welcome
