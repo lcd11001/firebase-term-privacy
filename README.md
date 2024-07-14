@@ -12,6 +12,15 @@ How to deploy Flutter web into Firebase hosting.
 
 [Google Search Console][5]
 
+## How to deploy into Firebase Hosting
+```
+    npm install -g firebase-tools
+    firebase login
+    firebase init
+    flutter build web -web-renderer html --release
+    firebase deploy
+```
+
 
 [2]: https://docs.flutter.dev/deployment/web
 [3]: https://support.google.com/googleplay/android-developer/answer/13205715
