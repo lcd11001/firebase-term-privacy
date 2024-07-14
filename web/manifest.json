@@ -1,11 +1,11 @@
 {
-    "name": "firebase_hosting",
-    "short_name": "firebase_hosting",
+    "name": "LCD soft",
+    "short_name": "LCD soft",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "description": "Explore our innovative apps! From productivity tools to addictive games, we’ve got you covered. Discover the magic of LCD Soft today!",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [

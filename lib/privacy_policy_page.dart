@@ -36,8 +36,8 @@ class PrivacyPolicyPage extends StatelessWidget {
   }
 
   _buildPrivacyPolicy(BuildContext context) {
-    final _ = AppLocalizations.of(context)!;
-    final company = _.developerName;
+    final loc = AppLocalizations.of(context)!;
+    final company = loc.developerName;
 
     return Container(
       color: Colors.transparent,
@@ -47,19 +47,18 @@ class PrivacyPolicyPage extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Heading(text: _.privacyTitle1),
-          Paragraph(text: _.privacy1(company, appTitle)),
-          Paragraph(text: _.privacy2),
-          Paragraph(text: _.privacy3),
-          Paragraph(text: _.privacy4(appTitle)),
+          Heading(text: loc.privacyTitle1),
+          Paragraph(text: loc.privacy1(company, appTitle)),
+          Paragraph(text: loc.privacy2),
+          Paragraph(text: loc.privacy3),
+          Paragraph(text: loc.privacy4(appTitle)),
         ],
       ),
     );
   }
 
   _buildInformationCollectionAndUse(BuildContext context) {
-    final _ = AppLocalizations.of(context)!;
-    final company = _.developerName;
+    final loc = AppLocalizations.of(context)!;
 
     return Container(
       color: Colors.transparent,
@@ -69,14 +68,14 @@ class PrivacyPolicyPage extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Heading(text: _.privacyTitle2),
-          Paragraph(text: _.privacy5(appTitle)),
+          Heading(text: loc.privacyTitle2),
+          Paragraph(text: loc.privacy5(appTitle)),
           Container(
             padding: const EdgeInsets.only(left: 30.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Hyperlink(text: _.privacy5_hyperlink),
+                Hyperlink(text: loc.privacy5_hyperlink),
                 const SizedBox(height: 20.0),
               ],
             ),
@@ -87,8 +86,7 @@ class PrivacyPolicyPage extends StatelessWidget {
   }
 
   _buildLogData(BuildContext context) {
-    final _ = AppLocalizations.of(context)!;
-    final company = _.developerName;
+    final loc = AppLocalizations.of(context)!;
 
     return Container(
       color: Colors.transparent,
@@ -98,16 +96,15 @@ class PrivacyPolicyPage extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Heading(text: _.privacyTitle3),
-          Paragraph(text: _.privacy6),
+          Heading(text: loc.privacyTitle3),
+          Paragraph(text: loc.privacy6),
         ],
       ),
     );
   }
 
   _buildCookies(BuildContext context) {
-    final _ = AppLocalizations.of(context)!;
-    final company = _.developerName;
+    final loc = AppLocalizations.of(context)!;
 
     return Container(
       color: Colors.transparent,
@@ -117,17 +114,16 @@ class PrivacyPolicyPage extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Heading(text: _.privacyTitle4),
-          Paragraph(text: _.privacy7),
-          Paragraph(text: _.privacy8),
+          Heading(text: loc.privacyTitle4),
+          Paragraph(text: loc.privacy7),
+          Paragraph(text: loc.privacy8),
         ],
       ),
     );
   }
 
   _buildServiceProviders(BuildContext context) {
-    final _ = AppLocalizations.of(context)!;
-    final company = _.developerName;
+    final loc = AppLocalizations.of(context)!;
 
     return Container(
       color: Colors.transparent,
@@ -137,29 +133,28 @@ class PrivacyPolicyPage extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Heading(text: _.privacyTitle5),
-          Paragraph(text: _.privacy9),
+          Heading(text: loc.privacyTitle5),
+          Paragraph(text: loc.privacy9),
           Container(
             padding: const EdgeInsets.only(left: 30.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Paragraph(text: _.privacy10),
-                Paragraph(text: _.privacy11),
-                Paragraph(text: _.privacy12),
-                Paragraph(text: _.privacy13),
+                Paragraph(text: loc.privacy10),
+                Paragraph(text: loc.privacy11),
+                Paragraph(text: loc.privacy12),
+                Paragraph(text: loc.privacy13),
               ],
             ),
           ),
-          Paragraph(text: _.privacy14),
+          Paragraph(text: loc.privacy14),
         ],
       ),
     );
   }
 
   _buildSecurity(BuildContext context) {
-    final _ = AppLocalizations.of(context)!;
-    final company = _.developerName;
+    final loc = AppLocalizations.of(context)!;
 
     return Container(
       color: Colors.transparent,
@@ -169,16 +164,15 @@ class PrivacyPolicyPage extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Heading(text: _.privacyTitle6),
-          Paragraph(text: _.privacy15),
+          Heading(text: loc.privacyTitle6),
+          Paragraph(text: loc.privacy15),
         ],
       ),
     );
   }
 
   _buildLinksToOtherSites(BuildContext context) {
-    final _ = AppLocalizations.of(context)!;
-    final company = _.developerName;
+    final loc = AppLocalizations.of(context)!;
 
     return Container(
       color: Colors.transparent,
@@ -188,16 +182,15 @@ class PrivacyPolicyPage extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Heading(text: _.privacyTitle7),
-          Paragraph(text: _.privacy16),
+          Heading(text: loc.privacyTitle7),
+          Paragraph(text: loc.privacy16),
         ],
       ),
     );
   }
 
   _buildChildrensPrivacy(BuildContext context) {
-    final _ = AppLocalizations.of(context)!;
-    final company = _.developerName;
+    final loc = AppLocalizations.of(context)!;
 
     return Container(
       color: Colors.transparent,
@@ -207,16 +200,15 @@ class PrivacyPolicyPage extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Heading(text: _.privacyTitle8),
-          Paragraph(text: _.privacy17),
+          Heading(text: loc.privacyTitle8),
+          Paragraph(text: loc.privacy17),
         ],
       ),
     );
   }
 
   _buildChangesToThisPrivacyPolicy(BuildContext context) {
-    final _ = AppLocalizations.of(context)!;
-    final company = _.developerName;
+    final loc = AppLocalizations.of(context)!;
 
     return Container(
       color: Colors.transparent,
@@ -226,18 +218,17 @@ class PrivacyPolicyPage extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Heading(text: _.privacyTitle9),
-          Paragraph(text: _.privacy18),
-          Paragraph(text: _.privacy19(DateTime(2024, 03, 15))),
+          Heading(text: loc.privacyTitle9),
+          Paragraph(text: loc.privacy18),
+          Paragraph(text: loc.privacy19(DateTime(2024, 03, 15))),
         ],
       ),
     );
   }
 
   _buildContactUs(BuildContext context) {
-    final _ = AppLocalizations.of(context)!;
-    final company = _.developerName;
-    final email = _.developerEmail;
+    final loc = AppLocalizations.of(context)!;
+    final email = loc.developerEmail;
 
     return Container(
       color: Colors.transparent,
@@ -247,9 +238,9 @@ class PrivacyPolicyPage extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Heading(text: _.privacyTitle10),
-          Paragraph(text: _.privacy20(email)),
-          Hyperlink(text: _.privacy20_hyperlink),
+          Heading(text: loc.privacyTitle10),
+          Paragraph(text: loc.privacy20(email)),
+          Hyperlink(text: loc.privacy20_hyperlink),
         ],
       ),
     );

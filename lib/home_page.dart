@@ -89,10 +89,10 @@ class HomePage extends StatelessWidget {
   }
 
   _buildDeveloper(BuildContext context) {
-    final _ = AppLocalizations.of(context)!;
+    final loc = AppLocalizations.of(context)!;
     return Expanded(
       child: Text(
-        _.developerName,
+        loc.developerName,
         style: const TextStyle(
           fontSize: 36.0,
           fontWeight: FontWeight.bold,
@@ -125,14 +125,14 @@ class HomePage extends StatelessWidget {
   }
 
   _buildSlogan(BuildContext context) {
-    final _ = AppLocalizations.of(context)!;
+    final loc = AppLocalizations.of(context)!;
     return Container(
       color: Colors.transparent,
       height: kLogoSize * 2.0,
       // padding: const EdgeInsets.symmetric(vertical: 16.0),
       child: Center(
         child: Text(
-          _.slogan,
+          loc.slogan,
           textAlign: TextAlign.left,
           style: const TextStyle(
             fontSize: 20.0,

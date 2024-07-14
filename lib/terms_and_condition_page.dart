@@ -26,8 +26,8 @@ class TermsAndConditionPage extends StatelessWidget {
   }
 
   _buildTermsAndConditions(BuildContext context) {
-    final _ = AppLocalizations.of(context)!;
-    final company = _.developerName;
+    final loc = AppLocalizations.of(context)!;
+    final company = loc.developerName;
 
     return Container(
       color: Colors.transparent,
@@ -37,34 +37,34 @@ class TermsAndConditionPage extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Heading(text: _.termsTitle1),
-          Paragraph(text: _.term1(company)),
-          Paragraph(text: _.term2(company)),
-          Paragraph(text: _.term3(appTitle)),
-          Paragraph(text: _.term4),
+          Heading(text: loc.termsTitle1),
+          Paragraph(text: loc.term1(company)),
+          Paragraph(text: loc.term2(company)),
+          Paragraph(text: loc.term3(appTitle)),
+          Paragraph(text: loc.term4),
           Container(
             padding: const EdgeInsets.only(left: 30.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Hyperlink(text: _.term4_hyperlink),
+                Hyperlink(text: loc.term4_hyperlink),
                 const SizedBox(height: 20.0),
               ],
             ),
           ),
-          Paragraph(text: _.term5(company)),
-          Paragraph(text: _.term6),
-          Paragraph(text: _.term7(company)),
-          Paragraph(text: _.term8(company)),
-          Paragraph(text: _.term9(company)),
+          Paragraph(text: loc.term5(company)),
+          Paragraph(text: loc.term6),
+          Paragraph(text: loc.term7(company)),
+          Paragraph(text: loc.term8(company)),
+          Paragraph(text: loc.term9(company)),
         ],
       ),
     );
   }
 
   _buildChangesToThisTermsAndConditions(BuildContext context) {
-    final _ = AppLocalizations.of(context)!;
-    final company = _.developerName;
+    final loc = AppLocalizations.of(context)!;
+    final company = loc.developerName;
 
     return Container(
       color: Colors.transparent,
@@ -72,17 +72,17 @@ class TermsAndConditionPage extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Heading(text: _.termsTitle2),
-          Paragraph(text: _.term10(company)),
-          Paragraph(text: _.term11(DateTime(2024, 03, 15))),
+          Heading(text: loc.termsTitle2),
+          Paragraph(text: loc.term10(company)),
+          Paragraph(text: loc.term11(DateTime(2024, 03, 15))),
         ],
       ),
     );
   }
 
   _buildContactUs(BuildContext context) {
-    final _ = AppLocalizations.of(context)!;
-    final email = _.developerEmail;
+    final loc = AppLocalizations.of(context)!;
+    final email = loc.developerEmail;
 
     return Container(
       color: Colors.transparent,
@@ -90,9 +90,9 @@ class TermsAndConditionPage extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Heading(text: _.termsTitle3),
-          Paragraph(text: _.term12(email)),
-          Hyperlink(text: _.term12_hyperlink),
+          Heading(text: loc.termsTitle3),
+          Paragraph(text: loc.term12(email)),
+          Hyperlink(text: loc.term12_hyperlink),
         ],
       ),
     );
