@@ -4,15 +4,44 @@ import 'package:firebase_hosting/components/paragraph.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-class PrivacyPolicyPage extends StatelessWidget {
+class PrivacyPolicyPage extends StatefulWidget {
   final String appTitle;
-
   const PrivacyPolicyPage({
     super.key,
     required this.appTitle,
   });
+
+  @override
+  State<PrivacyPolicyPage> createState() => _PrivacyPolicyPageState();
+}
+
+class _PrivacyPolicyPageState extends State<PrivacyPolicyPage> {
+  final Map<String, TextStyle> css = {};
+
   @override
   Widget build(BuildContext context) {
+    final loc = AppLocalizations.of(context)!;
+
+    css.addAll({
+      loc.developerName: const TextStyle(
+        fontSize: 20.0,
+        fontWeight: FontWeight.bold,
+        fontStyle: FontStyle.italic,
+        color: Colors.purple,
+      ),
+      loc.developerEmail: const TextStyle(
+        fontSize: 20.0,
+        fontWeight: FontWeight.normal,
+        color: Colors.green,
+      ),
+      widget.appTitle: const TextStyle(
+        fontSize: 20.0,
+        fontWeight: FontWeight.bold,
+        //decoration: TextDecoration.underline,
+        color: Colors.orange,
+      ),
+    });
+
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -48,10 +77,10 @@ class PrivacyPolicyPage extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Heading(text: loc.privacyTitle1),
-          Paragraph(text: loc.privacy1(company, appTitle)),
+          Paragraph(text: loc.privacy1(company, widget.appTitle), css: css),
           Paragraph(text: loc.privacy2),
           Paragraph(text: loc.privacy3),
-          Paragraph(text: loc.privacy4(appTitle)),
+          Paragraph(text: loc.privacy4(widget.appTitle), css: css),
         ],
       ),
     );
@@ -69,7 +98,7 @@ class PrivacyPolicyPage extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Heading(text: loc.privacyTitle2),
-          Paragraph(text: loc.privacy5(appTitle)),
+          Paragraph(text: loc.privacy5(widget.appTitle), css: css),
           Container(
             padding: const EdgeInsets.only(left: 30.0),
             child: Column(
@@ -239,7 +268,7 @@ class PrivacyPolicyPage extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Heading(text: loc.privacyTitle10),
-          Paragraph(text: loc.privacy20(email)),
+          Paragraph(text: loc.privacy20(email), css: css),
           Hyperlink(text: loc.privacy20_hyperlink),
         ],
       ),
