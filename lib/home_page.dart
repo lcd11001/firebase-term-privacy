@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:firebase_hosting/components/paragraph.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -126,17 +127,25 @@ class HomePage extends StatelessWidget {
 
   _buildSlogan(BuildContext context) {
     final loc = AppLocalizations.of(context)!;
+    final company = loc.developerName;
+
+    final Map<String, TextStyle> css = {
+      company: const TextStyle(
+        fontSize: 20.0,
+        fontWeight: FontWeight.bold,
+        fontStyle: FontStyle.italic,
+        color: Colors.purple,
+      ),
+    };
+
     return Container(
       color: Colors.transparent,
       height: kLogoSize * 2.0,
       // padding: const EdgeInsets.symmetric(vertical: 16.0),
       child: Center(
-        child: Text(
-          loc.slogan,
-          textAlign: TextAlign.left,
-          style: const TextStyle(
-            fontSize: 20.0,
-          ),
+        child: Paragraph(
+          text: loc.slogan(company),
+          css: css,
         ),
       ),
     );

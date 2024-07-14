@@ -61,7 +61,7 @@ class Paragraph extends StatelessWidget {
         parts.add(text.substring(start));
       }
 
-      debugPrint('parts: $parts');
+      // debugPrint('parts: $parts');
     } else {
       parts.add(text);
     }

@@ -8,7 +8,17 @@
 
   "developerName": "LCD Soft",
   "developerEmail": "lcd11001@gmail.com",
-  "slogan": "🚀 Explore our innovative apps! From productivity tools to addictive games, we’ve got you covered. Discover the magic of LCD Soft today! 🌟",
+  "slogan": "🚀 Explore our innovative apps! From productivity tools to addictive games, we’ve got you covered. Discover the magic of {company} today! 🌟",
+  "@slogan": {
+    "description": "Slogan of company",
+    "placeholders": {
+      "company": {
+        "description": "Company name",
+        "type": "String",
+        "example": "LCD Soft"
+      }
+    }
+  },
 
   "termsTitle1": "Terms and Conditions",
   "termsTitle2": "Changes to This Terms and Conditions",
