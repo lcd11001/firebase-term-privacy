@@ -44,3 +44,4 @@ app.*.map.json
 .firebase/
 l10_untranslated.json
 web/google*.html
+web/app-ads.txt
