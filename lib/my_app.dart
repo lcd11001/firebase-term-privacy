@@ -42,10 +42,17 @@ final _goRouter = GoRouter(
 );
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  final String version;
+  final String buildNumber;
+
+  const MyApp({super.key, required this.version, required this.buildNumber});
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
+      onGenerateTitle: (ctx) {
+        final loc = AppLocalizations.of(ctx)!;
+        return '${loc.developerName} v$version($buildNumber)';
+      },
       routerConfig: _goRouter,
       //locale: const Locale('vi'),
       localizationsDelegates: AppLocalizations.localizationsDelegates,
