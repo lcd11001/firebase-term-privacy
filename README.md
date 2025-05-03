@@ -18,7 +18,7 @@ How to deploy Flutter web into Firebase hosting.
     firebase login
     firebase init
     flutter build web --no-source-maps --release
-    firebase deploy
+    firebase deploy --only hosting
 ```
 
 
