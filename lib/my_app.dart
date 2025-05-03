@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 // run 'flutter gen-l10n' to generate the AppLocalizations class
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:firebase_hosting/l10n/generated/app_localizations.dart';
 
 import 'package:firebase_hosting/error_page.dart';
 import 'package:firebase_hosting/home_page.dart';

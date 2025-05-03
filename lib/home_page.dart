@@ -2,7 +2,7 @@ import 'dart:math';
 
 import 'package:firebase_hosting/components/paragraph.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:firebase_hosting/l10n/generated/app_localizations.dart';
 
 const kLogo = 'assets/images/bj_512.png';
 const kLogoSize = 96.0;
